@@ -1,0 +1,121 @@
+﻿@page
+@model Blog.Areas.Categories.Pages.IndexModel
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+    </head>
+    <body>
+        <p>
+            <a asp-page="Create">Create New</a>
+        </p>
+        <form asp-page="./Index" method="get">
+            <div class="form-actions no-color">
+                <p>
+                    Search category names:
+                    <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+                    <input type="submit" value="Search" class="btn btn-primary"/> | 
+                    <a asp-page="./Index">Clear</a>
+                </p>
+            </div>    
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort">
+                            @Html.DisplayNameFor(model => model.Categories[0].Name)
+                        </a>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Categories) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </body>
+</html>
+
+
+@*
+
+
+@page "{id:Guid?}"
+@model Blog.Areas.Categories.Pages.IndexModel
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+    </head>
+    <body>
+
+
+        <p>
+            <a asp-page="Create">Create New</a>
+        </p>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CategoryData.Categories) 
+                {
+                    string selectedRow = "";
+                if (item.Id == Model.CategoryId)
+                {
+                    selectedRow = "table-success";
+                }
+                <tr class="@selectedRow">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            <a asp-page=",.Index" asp-route-id="@item.Id">Select</a>
+                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    @if (Model.CategoryData.Articles != null)
+    {
+        <h3>Articles in Category</h3>
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Created</th>
+            </tr>
+
+            @foreach (var item in Model.)
+        </table>
+    }
+
+    </body>
+</html>
+*@

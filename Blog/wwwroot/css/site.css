@@ -1,0 +1,53 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+
+.navbar-avatar {
+    width: 40px;
+    height: 40px; 
+    object-fit: cover; 
+    border-radius: 30px;
+}
+
+/*************************************************************/
+/*                           TEXT                            */
+/*************************************************************/
+
+.label-text {
+    opacity: .65;
+    transform: scale(.85) translateY(-.5rem) translateX(.15rem);
+}
+
+
+
+
+
+/*************************************************************/
+/*                    USER PROFILE PAGE                      */
+/*************************************************************/
+.edit-user--profile-pic {
+    width: 350px;
+    height: 350px; 
+    object-fit: cover;
+}
+
+.edit-user--profile-pic-input {
+    border: 0px !important;
+    padding: 10px 0px 30px 0px;
+}
